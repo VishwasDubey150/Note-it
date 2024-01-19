@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/addnoteFragment">
+
+    <fragment
+        android:id="@+id/addnoteFragment"
+        android:name="com.example.noteit.fragments.AddnoteFragment"
+        android:label="AddnoteFragment" >
+        <action
+            android:id="@+id/action_addnoteFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editNoteFragment"
+        android:name="com.example.noteit.fragments.EditNoteFragment"
+        android:label="EditNoteFragment" >
+        <action
+            android:id="@+id/action_editNoteFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+        <argument
+            android:name="note"
+            app:argType="com.example.thenotesapp.model.Note"
+            app:nullable="true"
+            />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.noteit.fragments.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_editNoteFragment"
+            app:destination="@id/editNoteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addnoteFragment"
+            app:destination="@id/addnoteFragment" />
+    </fragment>
+</navigation>
